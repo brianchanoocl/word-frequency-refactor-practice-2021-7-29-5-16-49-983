@@ -27,12 +27,12 @@ public class WordFrequencyGame {
 
                 wordInfoList.sort((word1, word2) -> word2.getWordFrequncy() - word1.getWordFrequncy());
 
-                StringJoiner joiner = new StringJoiner("\n");
+                StringJoiner resultString = new StringJoiner("\n");
                 for (WordInfo wordInfo : wordInfoList) {
                     String s = wordInfo.getInputSentence() + " " +wordInfo.getWordFrequncy();
-                    joiner.add(s);
+                    resultString.add(s);
                 }
-                return joiner.toString();
+                return resultString.toString();
             } catch (Exception e) {
 
 
