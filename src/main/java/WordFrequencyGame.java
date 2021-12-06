@@ -1,8 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.StringJoiner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /*
 Refactor:
@@ -44,26 +41,19 @@ public class WordFrequencyGame {
         }
     }
 
-    private List<WordInfo> calculateWordFrequency(String inputSentence) {
-        //split the input string with 1 to n pieces of spaces
-        String[] words = inputSentence.split(SPACE_PATTERN);
+    private List<WordInfo> calculateWordFrequency(String sentence) {
+        List<String> words = Arrays.asList(sentence.split(SPACE_PATTERN));
+        List<String> distinctedWords = words.stream().distinct().collect(Collectors.toList());
 
-        List<WordInfo> wordInfoList = new ArrayList<>();
-        for (String word : words) {
-            WordInfo wordInfo = new WordInfo(word, 1);
-            wordInfoList.add(wordInfo);
-        }
+        List<WordInfo> wordInfos = new ArrayList<WordInfo>();
+        distinctedWords.forEach(distinctedWord -> {
+            int frequency = (int) words.stream().filter(word -> word.equals(distinctedWord)).count();
+            WordInfo wordInfo = new WordInfo(distinctedWord, frequency);
 
-        //get the map for the next step of sizing the same word
-        Map<String, List<WordInfo>> map = getListMap(wordInfoList);
+            wordInfos.add(wordInfo);
+        });
 
-        List<WordInfo> list = new ArrayList<>();
-        for (Map.Entry<String, List<WordInfo>> entry : map.entrySet()){
-            WordInfo wordInfo = new WordInfo(entry.getKey(), entry.getValue().size());
-            list.add(wordInfo);
-        }
-        wordInfoList = list;
-        return wordInfoList;
+        return wordInfos;
     }
 
 
