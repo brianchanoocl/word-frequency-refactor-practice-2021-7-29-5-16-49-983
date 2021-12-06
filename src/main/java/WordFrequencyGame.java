@@ -29,18 +29,18 @@ public class WordFrequencyGame {
                 //split the input string with 1 to n pieces of spaces
                 String[] words = inputStr.split(SPACE_PATTERN);
 
-                List<wordInfo> wordInfoList = new ArrayList<>();
+                List<WordInfo> wordInfoList = new ArrayList<>();
                 for (String word : words) {
-                    wordInfo wordInfo = new wordInfo(word, 1);
+                    WordInfo wordInfo = new WordInfo(word, 1);
                     wordInfoList.add(wordInfo);
                 }
 
                 //get the map for the next step of sizing the same word
-                Map<String, List<wordInfo>> map =getListMap(wordInfoList);
+                Map<String, List<WordInfo>> map = getListMap(wordInfoList);
 
-                List<wordInfo> list = new ArrayList<>();
-                for (Map.Entry<String, List<wordInfo>> entry : map.entrySet()){
-                    wordInfo wordInfo = new wordInfo(entry.getKey(), entry.getValue().size());
+                List<WordInfo> list = new ArrayList<>();
+                for (Map.Entry<String, List<WordInfo>> entry : map.entrySet()){
+                    WordInfo wordInfo = new WordInfo(entry.getKey(), entry.getValue().size());
                     list.add(wordInfo);
                 }
                 wordInfoList = list;
@@ -48,8 +48,8 @@ public class WordFrequencyGame {
                 wordInfoList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
 
                 StringJoiner joiner = new StringJoiner("\n");
-                for (wordInfo w : wordInfoList) {
-                    String s = w.getInputSentence() + " " +w.getWordCount();
+                for (WordInfo wordInfo : wordInfoList) {
+                    String s = wordInfo.getInputSentence() + " " +wordInfo.getWordCount();
                     joiner.add(s);
                 }
                 return joiner.toString();
@@ -62,9 +62,9 @@ public class WordFrequencyGame {
     }
 
 
-    private Map<String,List<wordInfo>> getListMap(List<wordInfo> wordInfoList) {
-        Map<String, List<wordInfo>> map = new HashMap<>();
-        for (wordInfo wordInfo : wordInfoList){
+    private Map<String,List<WordInfo>> getListMap(List<WordInfo> wordInfoList) {
+        Map<String, List<WordInfo>> map = new HashMap<>();
+        for (WordInfo wordInfo : wordInfoList){
 //       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
             if (!map.containsKey(wordInfo.getInputSentence())){
                 ArrayList arr = new ArrayList<>();
