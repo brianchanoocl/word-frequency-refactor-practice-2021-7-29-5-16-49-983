@@ -3,8 +3,6 @@ import java.util.stream.Collectors;
 
 /*
 Refactor:
-1. naming
-2. magic String
 3. temp var
 4. for loop
 5. Long methods
@@ -31,8 +29,6 @@ public class WordFrequencyGame {
                 }
                 return resultString.toString();
             } catch (Exception e) {
-                // TODO add test case (null String) for this catch
-
                 return CALCULATE_ERROR;
             }
     }
@@ -51,26 +47,4 @@ public class WordFrequencyGame {
 
         return wordInfos;
     }
-
-
-    private Map<String,List<WordInfo>> generateWordToWordInfoHashMap(List<WordInfo> wordInfoList) {
-        Map<String, List<WordInfo>> wordInfoMap = new HashMap<>();
-        for (WordInfo wordInfo : wordInfoList){
-//       wordInfoMap.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
-            if (!wordInfoMap.containsKey(wordInfo.getInputSentence())){
-                ArrayList wordAndWordInfoPair = new ArrayList<>();
-                wordAndWordInfoPair.add(wordInfo);
-                wordInfoMap.put(wordInfo.getInputSentence(), wordAndWordInfoPair);
-            }
-
-            else {
-                wordInfoMap.get(wordInfo.getInputSentence()).add(wordInfo);
-            }
-        }
-
-
-        return wordInfoMap;
-    }
-
-
 }
