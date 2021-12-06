@@ -1,15 +1,6 @@
 import java.util.*;
 import java.util.stream.Collectors;
 
-/*
-Refactor:
-3. temp var
-4. for loop
-5. Long methods
-6. useless if
-7. comment
- */
-
 public class WordFrequencyGame {
 
     public static final String SPACE_PATTERN = "\\s+";
@@ -44,6 +35,10 @@ public class WordFrequencyGame {
         List<String> words = Arrays.asList(sentence.split(SPACE_PATTERN));
         List<String> distinctedWords = words.stream().distinct().collect(Collectors.toList());
 
+        return generateWordInfoByDistinctedWords(words, distinctedWords);
+    }
+
+    private List<WordInfo> generateWordInfoByDistinctedWords(List<String> words, List<String> distinctedWords) {
         List<WordInfo> wordInfos = new ArrayList<WordInfo>();
         distinctedWords.forEach(distinctedWord -> {
             int frequency = (int) words.stream().filter(word -> word.equals(distinctedWord)).count();
@@ -51,7 +46,6 @@ public class WordFrequencyGame {
 
             wordInfos.add(wordInfo);
         });
-
         return wordInfos;
     }
 }
