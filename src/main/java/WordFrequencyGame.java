@@ -7,6 +7,15 @@ import java.io.CharArrayWriter;
 
 import java.time.LocalDateTime;
 
+/*
+Refactor:
+1. naming
+2. magic String
+3. temp var
+4. for loop
+5. Long methods
+ */
+
 public class WordFrequencyGame {
     public String getResult(String inputStr){
 
@@ -18,10 +27,10 @@ public class WordFrequencyGame {
             try {
 
                 //split the input string with 1 to n pieces of spaces
-                String[] arr = inputStr.split("\\s+");
+                String[] words = inputStr.split("\\s+");
 
                 List<Input> inputList = new ArrayList<>();
-                for (String s : arr) {
+                for (String s : words) {
                     Input input = new Input(s, 1);
                     inputList.add(input);
                 }
