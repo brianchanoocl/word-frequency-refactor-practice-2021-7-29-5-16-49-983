@@ -30,8 +30,8 @@ public class WordFrequencyGame {
                 String[] words = inputStr.split(SPACE_PATTERN);
 
                 List<wordInfo> wordInfoList = new ArrayList<>();
-                for (String s : words) {
-                    wordInfo wordInfo = new wordInfo(s, 1);
+                for (String word : words) {
+                    wordInfo wordInfo = new wordInfo(word, 1);
                     wordInfoList.add(wordInfo);
                 }
 
