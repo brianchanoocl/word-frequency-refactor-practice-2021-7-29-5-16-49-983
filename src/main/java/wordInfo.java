@@ -1,15 +1,15 @@
 public class wordInfo {
-    private String value;
+    private String inputSentence;
     private int wordCount;
 
     public wordInfo(String w, int wordCount){
-        this.value = w;
+        this.inputSentence = w;
         this.wordCount = wordCount;
     }
 
 
-    public String getValue() {
-        return this.value;
+    public String getInputSentence() {
+        return this.inputSentence;
     }
 
     public int getWordCount() {
