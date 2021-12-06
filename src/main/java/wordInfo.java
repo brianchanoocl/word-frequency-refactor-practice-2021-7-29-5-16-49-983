@@ -2,9 +2,9 @@ public class wordInfo {
     private String value;
     private int count;
 
-    public wordInfo(String w, int i){
+    public wordInfo(String w, int wordCount){
         this.value =w;
-        this.count =i;
+        this.count =wordCount;
     }
 
 
