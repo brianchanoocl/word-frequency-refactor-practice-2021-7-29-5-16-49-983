@@ -8,6 +8,8 @@ Refactor:
 3. temp var
 4. for loop
 5. Long methods
+6. useless if
+7. comment
  */
 
 public class WordFrequencyGame {
@@ -16,12 +18,6 @@ public class WordFrequencyGame {
     public static final String CALCULATE_ERROR = "Calculate Error";
 
     public String getResult(String inputSentence){
-
-
-        if (inputSentence.split(SPACE_PATTERN).length==1) {
-            return inputSentence + " 1";
-        } else {
-
             try {
 
                 List<WordInfo> wordInfoList = calculateWordFrequency(inputSentence);
@@ -35,11 +31,10 @@ public class WordFrequencyGame {
                 }
                 return resultString.toString();
             } catch (Exception e) {
-
+                // TODO add test case (null String) for this catch
 
                 return CALCULATE_ERROR;
             }
-        }
     }
 
     private List<WordInfo> calculateWordFrequency(String sentence) {
