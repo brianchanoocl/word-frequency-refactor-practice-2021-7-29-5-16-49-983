@@ -57,7 +57,7 @@ public class WordFrequencyGame {
     }
 
 
-    private Map<String,List<WordInfo>> getListMap(List<WordInfo> wordInfoList) {
+    private Map<String,List<WordInfo>> generateWordToWordInfoMap(List<WordInfo> wordInfoList) {
         Map<String, List<WordInfo>> map = new HashMap<>();
         for (WordInfo wordInfo : wordInfoList){
 //       map.computeIfAbsent(input.getValue(), k -> new ArrayList<>()).add(input);
