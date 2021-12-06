@@ -1,10 +1,10 @@
 public class WordInfo {
     private String inputSentence;
-    private int wordCount;
+    private int wordFrequncy;
 
-    public WordInfo(String inputSetence, int wordCount){
+    public WordInfo(String inputSetence, int wordFrequncy){
         this.inputSentence = inputSetence;
-        this.wordCount = wordCount;
+        this.wordFrequncy = wordFrequncy;
     }
 
 
@@ -12,8 +12,8 @@ public class WordInfo {
         return this.inputSentence;
     }
 
-    public int getWordCount() {
-        return this.wordCount;
+    public int getWordFrequncy() {
+        return this.wordFrequncy;
     }
 
 
