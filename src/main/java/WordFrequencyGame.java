@@ -5,10 +5,11 @@ public class WordFrequencyGame {
 
     public static final String SPACE_PATTERN = "\\s+";
     public static final String CALCULATE_ERROR = "Calculate Error";
+    public static final String LINE_BREAK_PATTERN = "\n";
 
-    public String getResult(String inputSentence){
+    public String getWordFrequencyResult(String sentence){
             try {
-                List<WordInfo> wordInfoList = calculateWordFrequency(inputSentence);
+                List<WordInfo> wordInfoList = calculateWordFrequency(sentence);
 
                 sortWordListByFrequencyDescendant(wordInfoList);
 
@@ -19,11 +20,10 @@ public class WordFrequencyGame {
     }
 
     private String computeResultingString(List<WordInfo> wordInfoList) {
-        StringJoiner resultString = new StringJoiner("\n");
-        for (WordInfo wordInfo : wordInfoList) {
-            String wordFrequencyPair = wordInfo.getInputSentence() + " " +wordInfo.getWordFrequncy();
-            resultString.add(wordFrequencyPair);
-        }
+        StringJoiner resultString = new StringJoiner(LINE_BREAK_PATTERN);
+        wordInfoList.forEach(wordInfo -> {
+            resultString.add(wordInfo.getInputSentence() + " " +wordInfo.getWordFrequncy());
+        });
         return resultString.toString();
     }
 
