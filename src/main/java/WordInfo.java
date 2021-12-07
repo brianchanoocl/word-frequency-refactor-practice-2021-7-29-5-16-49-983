@@ -1,15 +1,15 @@
 public class WordInfo {
-    private String inputSentence;
+    private String word;
     private int wordFrequncy;
 
     public WordInfo(String inputSetence, int wordFrequncy){
-        this.inputSentence = inputSetence;
+        this.word = inputSetence;
         this.wordFrequncy = wordFrequncy;
     }
 
 
     public String getInputSentence() {
-        return this.inputSentence;
+        return this.word;
     }
 
     public int getWordFrequncy() {
